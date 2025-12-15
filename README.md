@@ -1,7 +1,27 @@
 # TechStables Frontend
 
 ## Table of contents
+-   [Description](#blog-website-reactjs--rest-api)
+-   [Project goals](#project-goals)
 -   [Technologies](#technologies)
+-   [Development](#development)
+    -   [Making a clone](#making-a-clone)
+
+## Blog website (ReactJS + REST API)
+A modern, responsive bllog application built with ReactJs and powered by a REST API.
+This project demonstrates real-world frontend develompent skills, including API integration, state management, routing, and clean UI design.
+
+## Project goals
+-   Build a clean and responsive blog frontend using ReactJS
+-   Integrate a REST API for fetching and managing blog posts
+-   Implement core blog features(list, view, create, edit, delete posts)
+-   Apply scalable state management using React hooks
+-   Maintain clean, modular, and reusable code
+-   Ensure good UX with loading states, error handling, and accessibility
+-   Deploy the application to a modern hosting platform (Heroku)
+-   Document the project clearly for easy setup
+
+
 
 ## Technologies
 -   ReactJS
