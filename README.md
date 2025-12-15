@@ -21,7 +21,16 @@ This project demonstrates real-world frontend develompent skills, including API 
 -   Deploy the application to a modern hosting platform (Heroku)
 -   Document the project clearly for easy setup
 
-
+## Features
+-   View all blog posts
+-   Read a single post with full content
+-   Create new posts
+-   Edit existing posts
+-   Delete posts
+-   User authentication (JWT)
+-   Responsive UI for mobileand desktop
+-   Error + loading state handling
+-    Clean component structure
 
 ## Technologies
 -   ReactJS
