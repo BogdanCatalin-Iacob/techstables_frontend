@@ -25,7 +25,8 @@ This project demonstrates real-world frontend develompent skills, including API 
 
 ## Technologies
 -   ReactJS
--   CSS
+-   React Router
+-   CSS modules
 -   Axios
 -   Heroku
 
