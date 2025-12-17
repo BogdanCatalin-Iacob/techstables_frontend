@@ -3,6 +3,9 @@
 ## Table of contents
 -   [Description](#blog-website-reactjs--rest-api)
 -   [Project goals](#project-goals)
+-   [User Experience](#user-experience)
+    -   [Design](#design)
+        -   [Typography](#typography)
 -   [Technologies](#technologies)
 -   [Development](#development)
     -   [Making a clone](#making-a-clone)
@@ -20,6 +23,23 @@ This project demonstrates real-world frontend develompent skills, including API 
 -   Ensure good UX with loading states, error handling, and accessibility
 -   Deploy the application to a modern hosting platform (Heroku)
 -   Document the project clearly for easy setup
+
+## User Experience
+-   ### Design
+    -   #### Typography
+        - Primary font family: <br>
+        "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif
+        - Secondary font family: <br>
+        "Inter", "Segoe UI", Roboto, Arial, sans-serif
+
+        ##### Why these?
+        - Segoe UI is the default on Windows
+        - Helvetica Neue covers macOS
+        - Roboto is Android’s default
+        - Arial is universal
+        - `sans-serif` ensures a final safe fallback
+
+
 
 ## Features
 -   View all blog posts
