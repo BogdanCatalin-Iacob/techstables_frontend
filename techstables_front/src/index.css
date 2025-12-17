@@ -1,14 +1,15 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  /* Colors */
+  --bg-start: #DDEEFF;
+  --bg-end: #FFE6F0;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --card-background: #fff;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Typography */
+  --font-primary: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-secondary: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+
+  --text-primary: #222;
+  --text-secondary: #555;
+  --text-meta: #888;
 }
