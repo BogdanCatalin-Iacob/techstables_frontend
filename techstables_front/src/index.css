@@ -1,7 +1,7 @@
 :root {
   /* Colors */
-  --bg-start: #DDEEFF;
-  --bg-end: #FFE6F0;
+  --bg-start: #5ed5f3;
+  --bg-end: #deebf3;
 
   --card-background: #fff;
 
@@ -12,4 +12,12 @@
   --text-primary: #222;
   --text-secondary: #555;
   --text-meta: #888;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #fff;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  background: linear-gradient(240deg, var(--bg-start), var(--bg-end));
 }
