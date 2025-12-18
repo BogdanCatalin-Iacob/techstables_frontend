@@ -15,7 +15,7 @@ const NavBar = () => {
                 <Navbar.Brand href="#home">TechStables</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav className="ms-auto">
                         <Nav.Link href="#home"><FontAwesomeIcon icon="fa-regular fa-house" />Home</Nav.Link>
                         <Nav.Link href="#link"><FontAwesomeIcon icon="fa-regular fa-user" />Sign In</Nav.Link>
                         <Nav.Link href="#link"><FontAwesomeIcon icon="fa-regular fa-address-book" />Sign Up</Nav.Link>
