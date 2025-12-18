@@ -21,3 +21,13 @@ body {
   font-family: var(--font-primary);
   background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
 }
+
+a {
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--font-secondary);
+}
+
+a:hover {
+  font-weight: 700;
+}
