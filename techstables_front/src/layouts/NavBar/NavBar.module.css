@@ -1,0 +1,10 @@
+.NavLink,
+.active {
+    padding: .5em;
+    font-size:medium;
+}
+
+.active {
+    opacity: 1;
+    font-weight: 700;
+}
