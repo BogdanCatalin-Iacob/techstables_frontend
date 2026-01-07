@@ -4,6 +4,7 @@
 -   [Description](#blog-website-reactjs--rest-api)
 -   [Project goals](#project-goals)
 -   [User Experience](#user-experience)
+    -   [User Stories](#user-stories)
     -   [Design](#design)
         -   [Typography](#typography)
 -   [Technologies](#technologies)
@@ -25,6 +26,38 @@ This project demonstrates real-world frontend develompent skills, including API 
 -   Document the project clearly for easy setup
 
 ## User Experience
+-   ### User Stories
+| User story ID | As a/an | I want to be able to | So I can... |
+| 1 | User | View navbar from every page | Navigate easily between pages |
+| 2 |      | Navigate through pages quickly | View contentseamlessly without page refresh |
+| 3 |      | Create a new account | Access all the features for sign users |
+| 4 |      | Sign in to the app | Access functionality for logged users |
+| 5 |      | Know if I am logged in or not  | Log in or out if I need to |
+| 6 |      | Maintain my logged status until I choose to log out | Have a nice experience on the website |
+| 7 |      | See the log in register options | Login or Register to the site |
+| 8 |      | View user's avatar | Identify users of the application |
+| 9 |      | Create posts | Share my knowledge or images |
+| 10 |      | View details of a post | Learn more about the post |
+| 11 |      | Like a post | Show support for the post that interest me |
+| 12 |      | View all recent posts, ordered by newest | Stay up to date |
+| 13 |      | Search post by keywords | Find post and user profiles I am most interested in |
+| 14 |      | View post that I liked | Find the post I enjoy the most |
+| 15 |      | View content filtered by users I follow | Keep up to date whith what they are posting about |
+| 16 |      | Keep scrolling through posts on the site, taht are loaded automatically | Don't need press next button |
+| 17 |      | View posts page | I can read comments |
+| 18 |      | Edit my own posts | Make corrections or update my post after creation |
+| 19 |      | Add comments to posts | Share my thoughts about the post / topic |
+| 20 |      | See how long ago a comment was made | Know how old is the comment |
+| 21 |      | Read comments | Know what other people think about that post |
+| 22 |      | Delete my own comments | Control removal of my comments from the application |
+| 23 |      | Edit my own comments | Fix or update my comments |
+| 24 |      | View other users profiles | See their posts and learn more about them |
+| 25 |      | See statistic about a specific user: bio, number of posts, followers | Learn more about them |
+| 26 |      | Follow / unfollow users | Remove posts by specific users from my feed |
+| 27 |      | View all post by a specific user | Decide if follow or not |
+| 28 |      | Edit my profile | Change picture and bio |
+| 29 |      | Update username and password | Change my display name and keep my profile safe |
+
 -   ### Design
     -   #### Typography
         - Primary font family: <br>
