@@ -1,35 +1,34 @@
 :root {
-  /* Colors */
-  --bg-start: #5ed5f3;
-  --bg-end: #deebf3;
+    /* Colors */
+    --bg-start: #5ed5f3;
+    --bg-end: #deebf3;
 
-  --card-background: #fff;
+    --card-background: #fff;
 
-  /* Typography */
-  --font-primary: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  --font-secondary: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+    /* Typography */
+    --font-primary: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-secondary: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
 
-  --text-primary: #222;
-  --text-secondary: #555;
-  --text-meta: #888;
+    --text-primary: #222;
+    --text-secondary: #555;
+    --text-meta: #888;
 }
 
 body {
-  min-height: 100vh;
-  background-color: #fff;
-  color: var(--text-primary);
-  font-family: var(--font-primary);
-  background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+    background-color: #fff;
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
 }
 
 a {
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  opacity: .7;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    opacity: .7;
 }
 
 a:hover {
-  opacity: 1;
+    opacity: 1;
 }
