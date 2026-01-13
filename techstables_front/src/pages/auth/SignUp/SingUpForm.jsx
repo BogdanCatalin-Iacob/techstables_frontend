@@ -15,7 +15,9 @@ const SingUpForm = () => {
     });
     const { email, password, confirm_password } = signUpData;
 
-  
+    const [errors, setErrors] = useState({})
+
+    const navigate = useNavigate()
 
     const handleChange = (event) => {
         setSignUpData({
@@ -24,7 +26,15 @@ const SingUpForm = () => {
         })
     };
 
-
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await axios.post('https://techstables-2157aa5076c9.herokuapp.com/dj-rest-auth/registration', signUpData);
+            navigate('/signin');
+        } catch(err) {
+            setErrors(err.response?.data)
+        }
+    };
 
     return (<>
         <Container className={`${styles.wrapper} text-center`}>
@@ -41,6 +51,9 @@ const SingUpForm = () => {
                         placeholder="Email address" />
                     <Form.Label className={styles.formLabel}>Email address</Form.Label>
                 </Form.Group>
+                {errors.email?.map((message, idx) => {
+                    <Alert variant="warning" key={idx}>{message}</Alert>
+                })}
 
                 {/* Password input */}
                 <Form.Group className={styles.formGroup} controlId="password">
