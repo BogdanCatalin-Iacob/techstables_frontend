@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import { Link } from 'react-router'
 import styles from './SignUpForm.module.css'
+import ButtonSubmit from '../../../components/Button/ButtonSubmit'
 
 const SingUpForm = () => {
     return (<>
@@ -27,9 +28,10 @@ const SingUpForm = () => {
                     <Form.Control className={styles.Input} type="password" name="confirm_password" placeholder="Confirm password" />
                     <Form.Label className={styles.formLabel}>Confirm password</Form.Label>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                {/* <Button variant="primary" type="submit">
                     Register
-                </Button>
+                </Button> */}
+                <ButtonSubmit />
                 <Link to="/signin" className='d-block mt-3'>Already have an account? <span>Sign in</span></Link>
             </Form>
         </Container>
