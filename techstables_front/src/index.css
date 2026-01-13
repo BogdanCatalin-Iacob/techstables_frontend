@@ -16,8 +16,8 @@
 
 body {
     background-color: #fff;
-    color: var(--text-primary);
-    font-family: var(--font-primary);
+    color: var(--text-secondary);
+    font-family: var(--font-secondary);
     background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
 }
 
