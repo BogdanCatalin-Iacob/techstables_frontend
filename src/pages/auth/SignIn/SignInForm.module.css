@@ -1,0 +1,118 @@
+:root {
+    --text-primary: #222;
+    --text-secondary: #555;
+    --text-meta: #888;
+}
+
+.wrapper {
+    box-shadow: 0 15px 35px rgba(50, 50, 100, .1);
+    padding: 2em;
+    max-width: 100%;
+    background-color: #fff;
+    border-radius: .6em;
+    /* From https://css.glass */
+    /* background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.9px);
+    -webkit-backdrop-filter: blur(8.9px);
+    border: 1px solid rgba(255, 255, 255, 0.73); */
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: var(--text-primary);
+}
+
+.formGroup {
+    margin-bottom: 1.5em;
+    transition: all .3s;
+}
+
+.formLabel {
+    display: block;
+    position: absolute;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    padding-left: 1em;
+    opacity: 1;
+    transform: translateY(-1.8em);
+    transform-origin: 0 0;
+    transition: all .3s;
+}
+
+.Input {
+    width: 100%;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, .02);
+    border-style: none none solid none;
+    width: 100%;
+    transition: all .3s;
+}
+
+.Input::placeholder {
+    color: transparent;
+}
+
+.Input:focus {
+    box-shadow: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, .02);
+}
+
+.Input:focus+.formLabel,
+.Input:not(:placeholder-shown)+.formLabel {
+    transform: translateY(-3.5em) scale(.8);
+}
+
+.Input:focus-within {
+    transform: scale(1.05, 1.05);
+}
+
+.Button {
+    font-size: 0.8rem;
+    align-self: center;
+    border-radius: 100px;
+    border-color: transparent;
+    padding: 4px 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    min-width: 75px;
+}
+
+.Button:hover:active {
+  background-color: #2142b2 !important;
+}
+
+.Button:focus {
+  background-color: #2142b2;
+}
+
+.Wide {
+  padding: 10px 50px;
+  width: 100%;
+}
+
+.Bright {
+  background-color: #2ed9ff;
+  color: #2142b2;
+}
+
+@media screen and (min-width: 576px) {
+    .wrapper {
+        max-width: 80%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        max-width: 60%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .wrapper {
+        max-width: 40%;
+    }
+}
