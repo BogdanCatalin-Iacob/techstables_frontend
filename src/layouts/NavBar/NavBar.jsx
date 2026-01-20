@@ -6,11 +6,35 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { NavLink } from 'react-router'
 import styles from './NavBar.module.css'
+import { useContext } from 'react';
+import { CurrentUserContext } from '../../App';
 
 // add regular icons to fontawesome library 
 library.add(far)
 
 const NavBar = () => {
+
+    const currentUser = useContext(CurrentUserContext);
+    const loggedInIcons = (
+        <>
+        {currentUser?.username}
+        </>
+    )
+    const loggedOutIcons = (
+        <>
+            <NavLink to="signin"
+                className={({ isActive }) => isActive ? `${styles.active}` : `${styles.NavLink}`}>
+                <FontAwesomeIcon icon="fa-regular fa-user" className='me-2' />
+                Sign In
+            </NavLink>
+            <NavLink to="signup"
+                className={({ isActive }) => isActive ? `${styles.active}` : `${styles.NavLink}`}>
+                <FontAwesomeIcon icon="fa-regular fa-address-book" className='me-2' />
+                Sign Up
+            </NavLink>
+        </>
+        )
+
     return (
         <Navbar expand="md" fixed='top'>
             <Container>
@@ -25,16 +49,7 @@ const NavBar = () => {
                             <FontAwesomeIcon icon="fa-regular fa-house" className='me-2' />
                             Home
                         </NavLink>
-                        <NavLink to="signin"
-                            className={({ isActive }) => isActive ? `${styles.active}` : `${styles.NavLink}`}>
-                            <FontAwesomeIcon icon="fa-regular fa-user" className='me-2' />
-                            Sign In
-                        </NavLink>
-                        <NavLink to="signup"
-                            className={({ isActive }) => isActive ? `${styles.active}` : `${styles.NavLink}`}>
-                            <FontAwesomeIcon icon="fa-regular fa-address-book" className='me-2' />
-                            Sign Up
-                        </NavLink>
+                        {currentUser ? loggedInIcons : loggedOutIcons}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
