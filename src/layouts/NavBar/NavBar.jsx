@@ -14,9 +14,17 @@ library.add(far)
 const NavBar = () => {
 
     const currentUser = useCurrentUser();
+
+    const addPostIcon = (
+        <NavLink to="/posts/create"
+            className={({ isActive }) => isActive ? `${styles.active}` : `${styles.NavLink}`}>
+            <FontAwesomeIcon icon="fa-regular fa-plus-square" className='me-2' />
+            Add post
+        </NavLink>
+    )
     const loggedInIcons = (
         <>
-        {currentUser?.username}
+            {currentUser?.username}
         </>
     )
     const loggedOutIcons = (
@@ -32,7 +40,7 @@ const NavBar = () => {
                 Sign Up
             </NavLink>
         </>
-        )
+    )
 
     return (
         <Navbar expand="md" fixed='top'>
@@ -40,6 +48,7 @@ const NavBar = () => {
                 <NavLink to="/">
                     <Navbar.Brand className={styles.brand}>TechStables</Navbar.Brand>
                 </NavLink>
+                {currentUser && addPostIcon}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
@@ -48,6 +57,7 @@ const NavBar = () => {
                             <FontAwesomeIcon icon="fa-regular fa-house" className='me-2' />
                             Home
                         </NavLink>
+                        {/* show the post icon only if the current user exists */}
                         {currentUser ? loggedInIcons : loggedOutIcons}
                     </Nav>
                 </Navbar.Collapse>
