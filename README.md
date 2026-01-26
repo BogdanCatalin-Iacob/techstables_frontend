@@ -28,6 +28,7 @@ This project demonstrates real-world frontend develompent skills, including API 
 ## User Experience
 -   ### User Stories
 | User story ID | As a/an | I want to be able to | So I can... |
+|---------------|---------|----------------------|-------------|
 | 1 | User | View navbar from every page | Navigate easily between pages |
 | 2 |      | Navigate through pages quickly | View contentseamlessly without page refresh |
 | 3 |      | Create a new account | Access all the features for sign users |
@@ -88,7 +89,9 @@ This project demonstrates real-world frontend develompent skills, including API 
 ## Technologies
 -   ReactJS
 -   React Router
+-   React Bootstrap
 -   CSS modules
+-   Font Awesome
 -   Axios
 -   Heroku
 
