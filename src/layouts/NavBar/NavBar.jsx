@@ -9,6 +9,7 @@ import styles from './NavBar.module.css'
 import { useCurrentUser, useSetCurrentUser } from '../../contexts/CurrentUserContext';
 import Avatar from '../../components/Avatar/Avatar';
 import axios from 'axios';
+import { useClickOutsideToggle } from '../../hooks/useClickOutsideToggle';
 
 // add regular icons to fontawesome library 
 library.add(far)
@@ -17,6 +18,8 @@ const NavBar = () => {
 
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
+
+    const {expanded, setExpanded, ref} = useClickOutsideToggle();
 
     const handleSignOut = async () => {
         try {
@@ -74,13 +77,17 @@ const NavBar = () => {
     )
 
     return (
-        <Navbar expand="md" fixed='top'>
+        <Navbar expanded={expanded} expand="md" fixed='top'>
             <Container>
                 <NavLink to="/">
                     <Navbar.Brand className={styles.brand}>TechStables</Navbar.Brand>
                 </NavLink>
                 {currentUser && addPostIcon}
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle
+                    onClick={() => setExpanded(!expanded)}
+                    ref={ref}
+                    aria-controls="basic-navbar-nav"
+                />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
                         <NavLink to="/"
