@@ -6,15 +6,14 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { NavLink } from 'react-router'
 import styles from './NavBar.module.css'
-import { useContext } from 'react';
-import { CurrentUserContext } from '../../App';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 // add regular icons to fontawesome library 
 library.add(far)
 
 const NavBar = () => {
 
-    const currentUser = useContext(CurrentUserContext);
+    const currentUser = useCurrentUser();
     const loggedInIcons = (
         <>
         {currentUser?.username}
