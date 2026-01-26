@@ -6,8 +6,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { NavLink } from 'react-router'
 import styles from './NavBar.module.css'
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { useCurrentUser, useSetCurrentUser } from '../../contexts/CurrentUserContext';
 import Avatar from '../../components/Avatar/Avatar';
+import axios from 'axios';
 
 // add regular icons to fontawesome library 
 library.add(far)
@@ -15,6 +16,16 @@ library.add(far)
 const NavBar = () => {
 
     const currentUser = useCurrentUser();
+    const setCurrentUser = useSetCurrentUser();
+
+    const handleSignOut = async () => {
+        try {
+            await axios.post('/dj-rest-auth/logout/');
+            setCurrentUser(null);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const addPostIcon = (
         <NavLink to="/posts/create"
@@ -37,7 +48,7 @@ const NavBar = () => {
             </NavLink>
             <NavLink to="/"
                 className={styles.NavLink}
-                onClick={() => {}}>
+                onClick={handleSignOut}>
                 <FontAwesomeIcon icon="fa-regular fa-circle-right" className='me-2' />
                 Sign out
             </NavLink>
