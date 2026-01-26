@@ -7,6 +7,7 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 import { NavLink } from 'react-router'
 import styles from './NavBar.module.css'
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import Avatar from '../../components/Avatar/Avatar';
 
 // add regular icons to fontawesome library 
 library.add(far)
@@ -24,7 +25,26 @@ const NavBar = () => {
     )
     const loggedInIcons = (
         <>
-            {currentUser?.username}
+            <NavLink to="/feed"
+                className={({ isActive }) => isActive ? `${styles.active}` : `${styles.NavLink}`}>
+                <FontAwesomeIcon icon="fa-regular fa-rectangle-list" className='me-2' />
+                Feed
+            </NavLink>
+            <NavLink to="/liked"
+                className={({ isActive }) => isActive ? `${styles.active}` : `${styles.NavLink}`}>
+                <FontAwesomeIcon icon="fa-regular fa-heart" className='me-2' />
+                Liked
+            </NavLink>
+            <NavLink to="/"
+                className={styles.NavLink}
+                onClick={() => {}}>
+                <FontAwesomeIcon icon="fa-regular fa-circle-right" className='me-2' />
+                Sign out
+            </NavLink>
+            <NavLink to={`/profiles/${currentUser?.profile_id}`}
+                className={styles.NavLink}>
+                <Avatar src={currentUser?.profile_image} text="Profile" height={40}/>
+            </NavLink>
         </>
     )
     const loggedOutIcons = (
