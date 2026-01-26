@@ -1,10 +1,59 @@
+:root {
+    --shadow-light: #fff;
+    --shadow-dark: #cecece;
+    --bg-color: color-mix(in oklab, var(--shadow-light) 30%, transparent);
+
+    --text-secondary: #555;
+}
+
+.Navbar {
+    padding: 1em 1.5em;
+    border: 1px solid var(--shadow-light);
+    background: var(--bg-color);
+    border-radius: 50px;
+    box-shadow: 5px 5px 20px var(--shadow-dark),
+        -5px -5px 20px var(--shadow-light);
+}
+
 .NavLink,
 .active {
     padding: .5em;
-    font-size:medium;
+    font-size: medium;
+    position: relative;
+    margin: .3em;
 }
 
 .active {
     opacity: 1;
-    font-weight: 700;
+    font-weight: 600;
+}
+
+.NavLink::before,
+.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-secondary);
+    transition: width .3s ease-out;
+}
+
+.active::before {
+    width: 100%;
+}
+
+.NavLink:hover::before {
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    .active::before {
+        width: 0;
+    }
+
+    .NavLink:hover::before {
+        width: 0;
+    }
 }

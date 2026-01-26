@@ -78,7 +78,7 @@ const NavBar = () => {
 
     return (
         <Navbar expanded={expanded} expand="md" fixed='top'>
-            <Container>
+            <Container className={`${styles.Navbar} rounded-4`}>
                 <NavLink to="/">
                     <Navbar.Brand className={styles.brand}>TechStables</Navbar.Brand>
                 </NavLink>
@@ -89,7 +89,7 @@ const NavBar = () => {
                     aria-controls="basic-navbar-nav"
                 />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
+                    <Nav className="ms-auto align-items-center">
                         <NavLink to="/"
                             className={({ isActive }) => isActive ? `${styles.active}` : `${styles.NavLink}`}>
                             <FontAwesomeIcon icon="fa-regular fa-house" className='me-2' />
