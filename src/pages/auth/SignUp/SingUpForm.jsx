@@ -5,7 +5,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from 'react-router';
 import styles from './SignUpForm.module.css';
-import ButtonSubmit from '../../../components/Button/ButtonSubmit';
 import Alert from 'react-bootstrap/Alert';
 
 const SingUpForm = () => {
