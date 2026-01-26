@@ -1,6 +1,6 @@
 :root {
     /* Colors */
-    --bg-start: #5ed5f3;
+    --bg-start: #eff2f9;
     --bg-end: #deebf3;
 
     --card-background: #fff;
@@ -15,10 +15,19 @@
 }
 
 body {
-    background-color: #fff;
     color: var(--text-secondary);
     font-family: var(--font-secondary);
-    background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+    background-color: var(--bg-start);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    font-family: var(--font-primary);
 }
 
 a {
