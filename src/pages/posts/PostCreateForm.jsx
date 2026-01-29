@@ -14,24 +14,46 @@ import btnStyles from "../../components/Button.module.css";
 import Asset from "../../components/Asset/Asset";
 
 function PostCreateForm() {
-
     const [errors, setErrors] = useState({});
+    const [postData, setPostData] = useState({
+        title: "",
+        content: "",
+        image: ""
+    });
 
+    const {title, content, image} = postData;
 
+    const handleChange = (event) => {
+        setPostData({
+            ...postData,
+            [event.target.name]: event.target.value,
+        });
+    };
+
+    // input text fields
     const textFields = (
         <div className="text-center">
-            {/* Add your form fields here */}
             <form>
                 <Form.Group className="mb-3">
                     <Form.Label>Title</Form.Label>
-                    <Form.Control type="text" name="title" placeholder="Enter title" />
+                    <Form.Control
+                        type="text"
+                        name="title"
+                        placeholder="Enter title"
+                        value={title}
+                        onChange={handleChange} />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Content</Form.Label>
-                    <Form.Control as="textarea" name="content" rows={5} placeholder="Enter content" />
+                    <Form.Control
+                        as="textarea"
+                        name="content"
+                        rows={6}
+                        placeholder="Enter content"
+                        value={content}
+                        onChange={handleChange} />
                 </Form.Group>
             </form>
-
 
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Blue}`}
