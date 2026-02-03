@@ -1,0 +1,9 @@
+.Container {
+    min-height: 343px;
+    padding: 1em;
+    border: 1px solid var(--shadow-light);
+    border-radius: 2em;
+    background: var(--bg-color);
+    box-shadow: 5px 5px 20px var(--shadow-dark),
+        -5px -5px 20px var(--shadow-light);
+}
