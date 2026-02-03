@@ -1,15 +1,7 @@
-:root {
-    --shadow-light: #fff;
-    --shadow-dark: #cecece;
-    --bg-color: color-mix(in oklab, var(--shadow-light) 30%, transparent);
-
-    --text-secondary: #555;
-}
-
 .Navbar {
     padding: 1em 1.5em;
     border: 1px solid var(--shadow-light);
-    background: var(--bg-color);
+    background: var(--glass-bg-color);
     border-radius: 50px;
     box-shadow: 5px 5px 20px var(--shadow-dark),
         -5px -5px 20px var(--shadow-light);
