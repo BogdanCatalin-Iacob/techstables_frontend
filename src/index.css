@@ -1,9 +1,12 @@
 :root {
     /* Colors */
-    --bg-start: #eff2f9;
-    --bg-end: #deebf3;
 
-    --card-background: #fff;
+    /* --card-background: #eff2f9; */
+    --bg-color: #eff2f9;
+
+    --shadow-light: #fff;
+    --shadow-dark: #cecece;
+    --glass-bg-color: color-mix(in oklab, var(--shadow-light) 30%, transparent);
 
     /* Typography */
     --font-primary: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -17,7 +20,7 @@
 body {
     color: var(--text-secondary);
     font-family: var(--font-secondary);
-    background-color: var(--bg-start);
+    background-color: var(--bg-color);
 }
 
 h1,
