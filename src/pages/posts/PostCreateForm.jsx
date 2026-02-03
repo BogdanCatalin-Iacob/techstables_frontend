@@ -9,10 +9,11 @@ import Container from "react-bootstrap/Container";
 import Upload from "../../assets/upload.png";
 
 import styles from "./PostCreateEditForm.module.css";
-import "../../App.css";
+// import "../../App.css";
 import btnStyles from "../../components/Button.module.css";
 import Asset from "../../components/Asset/Asset";
 import { Image } from "react-bootstrap";
+import Card from "../../components/Card/Card";
 
 function PostCreateForm() {
     const [errors, setErrors] = useState({});
@@ -84,44 +85,47 @@ function PostCreateForm() {
 
     return (
         <Form>
-            <Row>
+            <Row className="gx-0">
                 <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-                    <Container
-                        className={`Content ${styles.Container} d-flex flex-column justify-content-center`}
-                    >
-                        <Form.Group className="text-center">
-                            {image ? (
-                                <>
-                                    <figure>
-                                        <Image className="Image" src={image} rounded />
-                                    </figure>
-                                    <div>
-                                        <Form.Label
-                                            className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
-                                            htmlFor="image-upload"
-                                        >
-                                            Change Image
-                                        </Form.Label>
-                                    </div>
-                                </>
-                            ) : (
-                                <Form.Label
-                                    className="d-flex justify-content-center"
-                                    htmlFor="image-upload"
-                                >
-                                    <Asset src={Upload} message="Click or tap to upload an image" />
-                                </Form.Label>
-                            )}
+                    <Card>
+                        <Container
+                            className="text-center d-flex flex-column justify-content-center"
+                        >
+                            <h2>Create Post</h2>
+                            <Form.Group className="text-center">
+                                {image ? (
+                                    <>
+                                        <figure>
+                                            <Image className={`${styles.Image}`} src={image} rounded />
+                                        </figure>
+                                        <div>
+                                            <Form.Label
+                                                className={`${btnStyles.Button} ${btnStyles.Blue} btn`}
+                                                htmlFor="image-upload"
+                                            >
+                                                Change Image
+                                            </Form.Label>
+                                        </div>
+                                    </>
+                                ) : (
+                                    <Form.Label
+                                        className="d-flex justify-content-center"
+                                        htmlFor="image-upload"
+                                    >
+                                        <Asset src={Upload} message="Click or tap to upload an image" />
+                                    </Form.Label>
+                                )}
 
-                            <Form.Control
-                                type="file"
-                                id="image-upload"
-                                accept="image/*"
-                                onChange={handleChangeImage}
-                                className="d-none" />
-                        </Form.Group>
-                        <div className="d-md-none">{textFields}</div>
-                    </Container>
+                                <Form.Control
+                                    type="file"
+                                    id="image-upload"
+                                    accept="image/*"
+                                    onChange={handleChangeImage}
+                                    className="d-none" />
+                            </Form.Group>
+                            <div className="d-md-none">{textFields}</div>
+                        </Container>
+                    </Card>
                 </Col>
                 <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
                     <Container className="Content">{textFields}</Container>
