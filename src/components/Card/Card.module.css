@@ -7,3 +7,7 @@
     box-shadow: 5px 5px 20px var(--shadow-dark),
         -5px -5px 20px var(--shadow-light);
 }
+
+.Content {
+  padding: 1em;
+}

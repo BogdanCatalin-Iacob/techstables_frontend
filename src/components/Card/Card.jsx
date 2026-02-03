@@ -4,7 +4,7 @@ import cardStyles from './Card.module.css';
 
 const Card = ({children}) => {
   return (
-    <Container className={`${cardStyles.Container}`}>
+    <Container className={`${cardStyles.Container} ${cardStyles.Content}`}>
       {children}
     </Container>
   )
