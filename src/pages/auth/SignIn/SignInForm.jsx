@@ -12,12 +12,12 @@ const SignInForm = () => {
 
     const setCurrentUser = useSetCurrentUser();
 
-    const [singInData, setSignInData] = useState({
+    const [signInData, setSignInData] = useState({
         username: "",
         password: ""
     });
 
-    const {username, password} = singInData;
+    const {username, password} = signInData;
 
     const [errors, setErrors] = useState({});
 
@@ -25,7 +25,7 @@ const SignInForm = () => {
 
     const handleChange = (event) => {
         setSignInData({
-            ...singInData,
+            ...signInData,
             [event.target.name]: event.target.value
         });
     };
@@ -33,7 +33,7 @@ const SignInForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const {data} = await axios.post("/dj-rest-auth/login/", singInData);
+            const {data} = await axios.post("/dj-rest-auth/login/", signInData);
             setCurrentUser(data.user);
             navigate('/')
         } catch (err) {
