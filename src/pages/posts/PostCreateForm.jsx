@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -12,8 +12,10 @@ import styles from "./PostCreateEditForm.module.css";
 // import "../../App.css";
 import btnStyles from "../../components/Button.module.css";
 import Asset from "../../components/Asset/Asset";
-import { Image } from "react-bootstrap";
+import { Alert, Image } from "react-bootstrap";
 import Card from "../../components/Card/Card";
+import { useNavigate } from "react-router";
+import { axiosReq } from "../../services/api/axiosDefaults";
 
 function PostCreateForm() {
     const [errors, setErrors] = useState({});
@@ -24,6 +26,10 @@ function PostCreateForm() {
     });
 
     const { title, content, image } = postData;
+
+    const imageInput = useRef(null);
+
+    const navigate = useNavigate();
 
     // handle text input change
     const handleChange = (event) => {
@@ -46,30 +52,59 @@ function PostCreateForm() {
         }
     };
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("content", content);
+        if (imageInput?.current?.files[0]) {
+            formData.append("image", imageInput.current.files[0]);
+        }
+
+        // refresh the access token if needed and submit the form
+        try {
+            const { data } = await axiosReq.post('/posts/', formData);
+            navigate(`/posts/${data.id}`);
+        } catch (error) {
+            console.log(error);
+            if (error.response?.status !== 401) {
+                setErrors(error.response?.data);
+            }
+        }
+    }
+
     // input text fields
     const textFields = (
         <div className="text-center">
-            <form>
-                <Form.Group className="mb-3">
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="title"
-                        placeholder="Enter title"
-                        value={title}
-                        onChange={handleChange} />
-                </Form.Group>
-                <Form.Group className="mb-3">
-                    <Form.Label>Content</Form.Label>
-                    <Form.Control
-                        as="textarea"
-                        name="content"
-                        rows={6}
-                        placeholder="Enter content"
-                        value={content}
-                        onChange={handleChange} />
-                </Form.Group>
-            </form>
+            <Form.Group className="mb-3">
+                <Form.Label>Title</Form.Label>
+                <Form.Control
+                    type="text"
+                    name="title"
+                    placeholder="Enter title"
+                    value={title}
+                    onChange={handleChange} />
+            </Form.Group>
+            {errors?.title?.map((message, idx) => (
+                <Alert variant={"warning"} key={idx}>
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group className="mb-3">
+                <Form.Label>Content</Form.Label>
+                <Form.Control
+                    as="textarea"
+                    name="content"
+                    rows={6}
+                    placeholder="Enter content"
+                    value={content}
+                    onChange={handleChange} />
+            </Form.Group>
+            {errors?.content?.map((message, idx) => (
+                <Alert variant={"warning"} key={idx}>
+                    {message}
+                </Alert>
+            ))}
 
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Blue}`}
@@ -84,7 +119,7 @@ function PostCreateForm() {
     );
 
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Row className="gx-0">
                 <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
                     <Card>
@@ -121,8 +156,14 @@ function PostCreateForm() {
                                     id="image-upload"
                                     accept="image/*"
                                     onChange={handleChangeImage}
+                                    ref={imageInput}
                                     className="d-none" />
                             </Form.Group>
+                            {errors?.image?.map((message, idx) => (
+                                <Alert variant={"warning"} key={idx}>
+                                    {message}
+                                </Alert>
+                            ))}
                             <div className="d-md-none">{textFields}</div>
                         </Container>
                     </Card>
