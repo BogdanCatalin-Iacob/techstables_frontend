@@ -26,8 +26,8 @@ export const CurrentUserProvider = ({ children }) => {
         handleMount();
     }, []);
 
-    useMemo(() => {
-        axiosReq.interceptors.request.use(
+    useEffect(() => {
+        const reqInterceptors = axiosReq.interceptors.request.use(
             async (config) => {
                 try{
                     await axios.post('dj-rest-auth/token/refresh/')
@@ -47,7 +47,7 @@ export const CurrentUserProvider = ({ children }) => {
             }
         )
 
-        axiosRes.interceptors.response.use(
+        const resInterceptors = axiosRes.interceptors.response.use(
             (response) => response,
             async (err) => {
                 if (err.response?.status === 401) {
@@ -66,6 +66,10 @@ export const CurrentUserProvider = ({ children }) => {
                 return Promise.reject(err);
             }
         )
+        return () => {
+            axiosReq.interceptors.request.eject(reqInterceptors);
+            axiosRes.interceptors.response.eject(resInterceptors);
+        }
     }, [navigate]);
 
     return (
