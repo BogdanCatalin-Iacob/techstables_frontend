@@ -10,7 +10,7 @@ export const useCurrentUser = () => useContext(CurrentUserContext);
 export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
 export const CurrentUserProvider = ({ children }) => {
-    const [currentuser, setCurrentUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState(null);
     const navigate = useNavigate();
 
     const handleMount = async () => {
@@ -69,7 +69,7 @@ export const CurrentUserProvider = ({ children }) => {
     }, [navigate]);
 
     return (
-        <CurrentUserContext.Provider value={currentuser}>
+        <CurrentUserContext.Provider value={currentUser}>
             <SetCurrentUserContext.Provider value={setCurrentUser}>
             {children}
             </SetCurrentUserContext.Provider>
